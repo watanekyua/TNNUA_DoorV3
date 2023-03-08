@@ -2720,7 +2720,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d261ff7cbfaf0e24cba1efe1b5d44912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loopDelay: 0.2
+  loopDelay: 0.5
   BW_Threshold: 5
   depthThreshold: 35
   SignalInput: {fileID: 0}

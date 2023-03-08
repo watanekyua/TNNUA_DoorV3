@@ -88,7 +88,7 @@ public class AvatarLayerControl : MonoBehaviour
 
         //為每個Blob建立Mat
         //List<Mat> blobs = new List<Mat>();
-        List<Point> bottomPoint = new List<Point>(); bottomPoint.Add(new Point());
+        //List<Point> bottomPoint = new List<Point>(); bottomPoint.Add(new Point());
         // for (int i = 0; i < total; ++i)
         //     blobs.Add(new Mat(srcMat.size (), CvType.CV_8UC3));
 
@@ -109,7 +109,7 @@ public class AvatarLayerControl : MonoBehaviour
 
             //Imgproc.circle (dstMat, new Point (x + width/2, y + height), 30, new Scalar (255, 0, 0), -1);
             Point p = new Point (x + width/2, y + height);
-            bottomPoint.Add(p);
+            //bottomPoint.Add(p);
 
             if(p.y > largest_y){
                 largest_y = p.y;
