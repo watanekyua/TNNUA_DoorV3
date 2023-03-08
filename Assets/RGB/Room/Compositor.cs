@@ -19,6 +19,7 @@ public sealed class Compositor : MonoBehaviour
     [SerializeField] RenderTexture TempBuff;
     [SerializeField] int noHumanValue = 3000;
     public Slider TH_Slider;
+    public InputField INP_noHuman;
 
     public RenderTexture GetOutputTex => OutputTex;
 
@@ -43,6 +44,15 @@ public sealed class Compositor : MonoBehaviour
             SystemConfig.Instance.SaveData("NN_TH", x);
         });
         TH_Slider.value = SystemConfig.Instance.GetData<float>("NN_TH");
+
+        INP_noHuman.onValueChanged.AddListener(x => {
+            int f = 3000;
+            if(int.TryParse(x, out f)){
+                noHumanValue = f;
+                SystemConfig.Instance.SaveData("NO_HU", x);
+            }
+        });
+        INP_noHuman.text = SystemConfig.Instance.GetData<string>("NO_HU", "3000");
     }
 
     void OnDestroy()
@@ -106,7 +116,7 @@ public sealed class Compositor : MonoBehaviour
             // Debug.Log(pixels[0].b);
             // Debug.Log(pixels[0].a);
             // Debug.Log(pixels[0].grayscale);
-            //Debug.Log($"Total Himan Pix val : {totalPixel}");
+            Debug.Log($"Total Himan Pix val : {totalPixel}");
             if(totalPixel < noHumanValue) return true;
         }
 
